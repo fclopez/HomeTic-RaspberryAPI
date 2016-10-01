@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
+using System.Collections.Generic;
 
 namespace RaspberryAPI
 {
@@ -11,6 +12,9 @@ namespace RaspberryAPI
         {
             // Web API configuration and services
 
+            /*Se habilita la actualizacion de datos via http*/
+            var cors = new EnableCorsAttribute("http://localhost:80,http://localhost","*","*");
+            config.EnableCors(cors);
             // Web API routes
             config.MapHttpAttributeRoutes();
 

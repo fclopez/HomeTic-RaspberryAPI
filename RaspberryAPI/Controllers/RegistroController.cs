@@ -10,9 +10,12 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using RaspberryAPI.Models;
+using System.Web.Http.Cors;
 
 namespace RaspberryAPI.Controllers
 {
+
+     [EnableCors(origins: "http://localhost:59720, http://localhost:3289,http://localhost:3288,http://localhost:20216,http://localhost:20193,http://localhost:22372", headers: "*", methods: "*")]
     public class RegistroController : ApiController
     {
         private DataContext db = new DataContext();
