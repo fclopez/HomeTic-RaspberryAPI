@@ -103,3 +103,44 @@ C:\Users\flopez\Documents\Visual Studio 2013\Projects\RaspberryAPI\RaspberryAPI\
 C:\Users\flopez\Documents\Visual Studio 2013\Projects\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.pdb
 C:\Users\flopez\Documents\Visual Studio 2013\Projects\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.Migrations.Initial.resources
 C:\Users\flopez\Documents\Visual Studio 2013\Projects\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.csproj.GenerateResource.Cache
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\RaspberryAPI.dll.config
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\RaspberryAPI.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\RaspberryAPI.pdb
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Antlr3.Runtime.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\EntityFramework.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\EntityFramework.SqlServer.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Newtonsoft.Json.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Cors.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Helpers.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Http.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Mvc.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Optimization.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Razor.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.WebPages.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\WebGrease.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\EntityFramework.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Newtonsoft.Json.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Http.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Http.Cors.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Helpers.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Mvc.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Optimization.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.Razor.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.WebPages.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Antlr3.Runtime.pdb
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.csprojResolveAssemblyReference.cache
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.Migrations.Initial.resources
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.csproj.GenerateResource.Cache
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.pdb
