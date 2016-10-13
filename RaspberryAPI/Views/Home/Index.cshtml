@@ -22,3 +22,52 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
     </div>
 </div>*@
+<div>
+    <label for="txloginuser">Online User</label>
+    <input id="txloginuser" type="text" name="txloginuser" />
+    <label for="txuserid">User</label>
+    <input id="txuserid" type="text" name="txuserid" />
+    <label for="txuserkey">User Key</label>
+    <input id="txuserkey" type="text" name="txuserkey" />
+    <button id="openButton" value="Open">Open</button>
+    <button id="closeButton" value="Close">Close</button>
+    <label for="txmessage">Message</label>
+    <input id="txmessage" type="text" name="txmessage" />
+</div>
+<div>
+    <button id="sendButton" value="Send">Send</button>&nbsp;
+</div>
+<div id="divmsg"></div>
+@section scripts{
+    <script type="text/javascript">
+
+        var demoService;
+
+        $(document).ready(function () {
+            $("#txloginuser").attr("disabled", "disabled");
+            $("#txuserkey").attr("disabled", "disabled");
+
+            $("#closeButton").click(function () {
+                if (demoService.OPEN) {
+                    demoService.close();
+                }
+            });
+
+            $("#sendButton").click(function () {
+                if (!demoService.OPEN) {
+                    demoService.close();
+                    username = $('#txuserid').val();
+                    var url = "ws://" + window.location.host + '/api/socket?userid=' + username;
+                    demoService = new WebSocket(url);
+                }
+                username = $('#txuserid').val();
+                demoService.send('{userid:\'' + username + '\',tipoproceso:\''+$('#txmessage').val()+'\'}');
+            });
+
+
+        });
+
+
+
+    </script>
+}
