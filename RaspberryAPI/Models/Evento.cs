@@ -9,7 +9,7 @@ namespace RaspberryAPI.Models
 {
     public class Evento
     {
-        public ProcessWebSocketHandler evento { get; set; }
+        public ProcessWebSocketHandler eventos { get; set; }
         public string sesion { get; set; }
         public string mensaje { get; set; }
 

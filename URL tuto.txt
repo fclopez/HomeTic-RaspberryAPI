@@ -1,1 +1,8 @@
 http://www.asp.net/web-api/overview/data/using-web-api-with-entity-framework/part-2
+http://www.codeproject.com/Articles/618032/Using-WebSocket-in-NET-4-5-Part-2
+http://www.codeproject.com/Articles/620731/Using-WebSocket-in-NET-4-5-Part-4
+
+
+
+/*Por revisar*/
+http://stackoverflow.com/questions/35554128/opening-a-websocket-channel-inside-mvc-controller

@@ -4,38 +4,43 @@
     @*<p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>*@
 </div>
 @*<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-</div>*@
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+            is an ideal platform for building RESTful applications on the .NET Framework.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
 <div>
-    <label for="txloginuser">Online User</label>
+    <label for="txloginuser">Online User </label>
     <input id="txloginuser" type="text" name="txloginuser" />
-    <label for="txuserid">User</label>
+    <br />
+    <label for="txuserid">User </label>
     <input id="txuserid" type="text" name="txuserid" />
-    <label for="txuserkey">User Key</label>
+    <br />
+    <label for="txuserkey">User Key </label>
     <input id="txuserkey" type="text" name="txuserkey" />
-    <button id="openButton" value="Open">Open</button>
-    <button id="closeButton" value="Close">Close</button>
-    <label for="txmessage">Message</label>
+    <br />
+    <button id="openButton" value="Open">Open </button>
+    <button id="closeButton" value="Close">Close </button>
+    <br />
+    <label for="txmessage">Message </label>
     <input id="txmessage" type="text" name="txmessage" />
 </div>
 <div>
-    <button id="sendButton" value="Send">Send</button>&nbsp;
+    <br />
+    <button id="sendButton" value="Send">Send </button>&nbsp;
 </div>
 <div id="divmsg"></div>
 @section scripts{
@@ -44,16 +49,16 @@
         var demoService;
 
         $(document).ready(function () {
-            $("#txloginuser").attr("disabled", "disabled");
-            $("#txuserkey").attr("disabled", "disabled");
+            $('#txloginuser').attr("disabled", "disabled");
+            $('#txuserkey').attr("disabled", "disabled");
 
-            $("#closeButton").click(function () {
+            $('#closeButton').click(function () {
                 if (demoService.OPEN) {
                     demoService.close();
                 }
             });
 
-            $("#sendButton").click(function () {
+            $('#sendButton').click(function () {
                 if (!demoService.OPEN) {
                     demoService.close();
                     username = $('#txuserid').val();
@@ -61,13 +66,93 @@
                     demoService = new WebSocket(url);
                 }
                 username = $('#txuserid').val();
-                demoService.send('{userid:\'' + username + '\',tipoproceso:\''+$('#txmessage').val()+'\'}');
+                demoService.send('{userid:\'' + username + '\',tipoproceso:\'' + $('#txmessage').val() + '\'}');
             });
 
+            $('#openButton').click(function () {
+                username = $('#txuserid').val();
+                var url = "ws://" + window.location.host + '/api/Socket?userid=' + username;
+                demoService = new WebSocket(url);
+                console.log(url);
+
+                demoService.onopen = function () {
+                    $('#divmsg').append("Conexion abierta <br/>");
+                }
+
+                demoService.onmessage = function (message) {
+                    var md = message.data;
+                    if (md.substring(0, 8) == 'Usuario:') {
+                        $('#txloginuser').val(md.replace('Usuario:', ''));
+                    } else if (md.substring(0, 4) == 'key:') {
+                        $('#txuserkey').val(md.replace('key:', ''));
+
+                    } else {
+                        $('#divmsg').append(message.data + '<br/>');
+                    }
+                }
+
+                demoService.onclose = function () {
+                    $('#divmsg').append("Conexion cerrada <br/>");
+                    $('#txloginuser').val('');
+                    $('#txuserkey').val('');
+                    $('#txuserid').val('');
+                    $('#divmsg').empty();
+                }
+
+                demoService.onerror = function (error) {
+                    $('#divmsg').append(error.data + '<br/>');
+                }
+            });
 
         });
 
-
-
     </script>
 }
+
+@*<meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+        <input type="button" value="Connect" id="btnConnect" />
+        <input type="button" value="Disconnect" id="btnDisconnect" /><br />
+        <input type="text" id="textInput" />
+        <input type="button" value="Send" id="btnSend" /><br />
+        <span id="spanStatus">(display)</span>
+
+    @section scripts{
+        <script type="text/javascript">
+            var ws;
+            $(document).ready(function () {
+
+                $('#btnConnect').click(function () {
+                    $('#spanStatus').text("connecting");
+                    ws = new WebSocket("ws://" + window.location.host + '/api/Server');
+                    console.log(ws);
+
+                    ws.onopen = function () {
+                        $('#spanStatus').text("connected");
+                    };
+                    ws.onmessage = function (evt) {
+                        $('#spanStatus').text(evt.data);
+                    };
+                    ws.onerror = function (evt) {
+                        $('#spanStatus').text(evt.message);
+                    };
+                    ws.onclose = function () {
+                        $('#spanStatus').text("disconnected");
+                    };
+                });
+
+                $('#btnSend').click(function () {
+                    if (ws.readyState == WebSocket.OPEN) {
+                        ws.send($("#textInput").val());
+                    }
+                    else {
+                        $('#spanStatus').text("Connection is closed");
+                    }
+                });
+
+                $('#btnDisconnect').click(function () {
+                    ws.close();
+                });
+            });
+        </script>
+    }*@

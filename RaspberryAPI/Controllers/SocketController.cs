@@ -8,14 +8,11 @@ using System.Web.Http;
 /*importa los modelos*/
 using RaspberryAPI.Models;
 
-/*librerias para el socket*/
-//using Microsoft.Web.WebSockets;
-using System.Web.Script.Serialization;
-//using System.Net.WebSockets;
-//using Microsoft.AspNet.SignalR.WebSockets;
 /*por documentar*/
-using System.Threading;
+/*librerias para el socket*/
 using Microsoft.Web.WebSockets;
+using System.Web.Script.Serialization;
+using System.Threading;
 
 namespace RaspberryAPI.Controllers
 {
@@ -46,10 +43,6 @@ namespace RaspberryAPI.Controllers
     {
         private static WebSocketCollection _processClient = new WebSocketCollection();
         public string userid { get; set; }
-        //public ProcessWebSocketHandler()
-        //{
-        //}
-
         public override void OnClose()
         {
             //base.OnClose();
@@ -94,13 +87,13 @@ namespace RaspberryAPI.Controllers
 
             foreach (ProcessWebSocketHandler item in _processClient)
             {
-                if (item.userid == value.userid)
+                //if(item.userid != value.userid)
+                if (true)
                 {
-                    item.Send("Procesando...");
                     Transaccion trans = new Transaccion();
-                    trans.EnviarACliente += SendToClientMessage;
+                    trans.SendToClient += SendToClientMessage;
                     trans.StarProcess(item, value.tipoproceso);
-                    trans.EnviarACliente -= SendToClientMessage;
+                    trans.SendToClient -= SendToClientMessage;
                     item.Send("Listo ");
                 }
             }
@@ -108,39 +101,29 @@ namespace RaspberryAPI.Controllers
 
         private void SendToClientMessage(object sender, Evento e)
         {
-            e.evento.Send(e.mensaje);
+            e.eventos.Send(e.mensaje);
         }
 
     }
-
 
     public class Transaccion
     {
-        public event EventHandler<Evento> EnviarACliente;
+        public event EventHandler<Evento> SendToClient;
         protected virtual void OnSendToClient(Evento e)
         {
-            if (this.EnviarACliente != null)
+            if (this.SendToClient != null)
             {
-                this.EnviarACliente(this, e);
+                this.SendToClient(this, e);
             }
         }
-
-        public void StarProcess(ProcessWebSocketHandler handler, string mensaje)
+        public void StarProcess(ProcessWebSocketHandler evento, string mensaje)
         {
-            Thread.Sleep(1000);
-            for (int i = 0; i < 5; i++)
-            {
-                Evento e = new Evento()
-                {
-                    evento = handler,
-                    mensaje = DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss fffffff") + "=>" + mensaje + "Procesando " + (i * 20).ToString() + "%"
-                };
-                this.OnSendToClient(e);
-                Thread.Sleep(200000 * ((i % 2) + 1));
-            }
+            Evento evnt = new Evento();
+            evnt.eventos = evento;
+            evnt.mensaje = mensaje;
+            this.OnSendToClient(evnt);
         }
+
     }
-
-
 
 }
