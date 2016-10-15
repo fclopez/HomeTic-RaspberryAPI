@@ -108,3 +108,15 @@ C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.Mi
 C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.csproj.GenerateResource.Cache
 C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.dll
 C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\obj\Debug\RaspberryAPI.pdb
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.Owin.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.Owin.Security.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.WebSockets.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Owin.dll
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.Owin.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Camilo\Source\Repos\RaspberryAPI\RaspberryAPI\bin\Microsoft.Owin.Security.xml
