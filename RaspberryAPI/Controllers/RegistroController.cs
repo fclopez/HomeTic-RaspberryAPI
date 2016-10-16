@@ -18,19 +18,21 @@ namespace RaspberryAPI.Controllers
      [EnableCors(origins: "http://localhost:59720, http://localhost:3289,http://localhost:3288,http://localhost:20216,http://localhost:20193,http://localhost:22372", headers: "*", methods: "*")]
     public class RegistroController : ApiController
     {
-        private DataContext db = new DataContext();
+        private DataContext contextDb = new DataContext();
 
         // GET api/Registro
         public IQueryable<RegistroSensor> GetRegistroSensors()
         {
-            return db.RegistroSensors;
+            var listaRegistros = (from reg in contextDb.RegistroSensors
+                                      select reg);
+            return listaRegistros;
         }
 
         // GET api/Registro/5
         [ResponseType(typeof(RegistroSensor))]
         public async Task<IHttpActionResult> GetRegistroSensor(string id)
         {
-            RegistroSensor registrosensor = await db.RegistroSensors.FindAsync(id);
+            RegistroSensor registrosensor = await contextDb.RegistroSensors.FindAsync(id);
             if (registrosensor == null)
             {
                 return NotFound();
@@ -52,11 +54,11 @@ namespace RaspberryAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(registrosensor).State = EntityState.Modified;
+            contextDb.Entry(registrosensor).State = EntityState.Modified;
 
             try
             {
-                await db.SaveChangesAsync();
+                await contextDb.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -82,11 +84,11 @@ namespace RaspberryAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.RegistroSensors.Add(registrosensor);
+            contextDb.RegistroSensors.Add(registrosensor);
 
             try
             {
-                await db.SaveChangesAsync();
+                await contextDb.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
@@ -107,14 +109,14 @@ namespace RaspberryAPI.Controllers
         [ResponseType(typeof(RegistroSensor))]
         public async Task<IHttpActionResult> DeleteRegistroSensor(int id)
         {
-            RegistroSensor registrosensor = await db.RegistroSensors.FindAsync(id);
+            RegistroSensor registrosensor = await contextDb.RegistroSensors.FindAsync(id);
             if (registrosensor == null)
             {
                 return NotFound();
             }
 
-            db.RegistroSensors.Remove(registrosensor);
-            await db.SaveChangesAsync();
+            contextDb.RegistroSensors.Remove(registrosensor);
+            await contextDb.SaveChangesAsync();
 
             return Ok(registrosensor);
         }
@@ -123,14 +125,14 @@ namespace RaspberryAPI.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                contextDb.Dispose();
             }
             base.Dispose(disposing);
         }
 
         private bool RegistroSensorExists(int id)
         {
-            return db.RegistroSensors.Count(e => e.Id == id) > 0;
+            return contextDb.RegistroSensors.Count(e => e.Id == id) > 0;
         }
     }
 }
