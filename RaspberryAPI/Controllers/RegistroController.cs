@@ -21,10 +21,15 @@ namespace RaspberryAPI.Controllers
         private DataContext contextDb = new DataContext();
 
         // GET api/Registro
-        public IQueryable<RegistroSensor> GetRegistroSensors()
+        public IQueryable<dynamic> GetRegistroSensors()
         {
             var listaRegistros = (from reg in contextDb.RegistroSensors
-                                  select reg);
+                                  select new { 
+                                      reg.Id,
+                                      reg.FechaRegistro,
+                                      reg.Lectura,
+                                      reg.SensorId                                 
+                                  });
             return listaRegistros;
         }
 

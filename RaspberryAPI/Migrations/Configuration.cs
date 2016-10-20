@@ -28,9 +28,9 @@ namespace RaspberryAPI.Migrations
             );
 
             context.RegistroSensors.AddOrUpdate(p => p.Id,
-                new RegistroSensor {Id = 1, FechaRegistro = DateTime.Now,Lectura = "Movimiento detectado", SensorId = 2 },
-                new RegistroSensor {Id = 2, FechaRegistro = DateTime.Now,Lectura = "Movimiento detectado", SensorId = 2 },
-                new RegistroSensor {Id = 3, FechaRegistro = DateTime.Now,Lectura = "Movimiento detectado", SensorId = 3 }
+                new RegistroSensor { Id = 1, FechaRegistro = DateTime.Now, Lectura = "Movimiento detectado", SensorId = 2 },
+                new RegistroSensor { Id = 2, FechaRegistro = DateTime.Now, Lectura = "Movimiento detectado", SensorId = 2 },
+                new RegistroSensor { Id = 3, FechaRegistro = DateTime.Now, Lectura = "Movimiento detectado", SensorId = 3 }
                 );
         }
     }
