@@ -24,7 +24,7 @@ namespace RaspberryAPI.Controllers
         public IQueryable<RegistroSensor> GetRegistroSensors()
         {
             var listaRegistros = (from reg in contextDb.RegistroSensors
-                                      select reg);
+                                  select reg);
             return listaRegistros;
         }
 

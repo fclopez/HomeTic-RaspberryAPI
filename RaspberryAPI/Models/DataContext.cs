@@ -19,6 +19,10 @@ namespace RaspberryAPI.Models
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
         public System.Data.Entity.DbSet<RaspberryAPI.Models.Sensor> Sensors { get; set; }
 
         public System.Data.Entity.DbSet<RaspberryAPI.Models.RegistroSensor> RegistroSensors { get; set; }
